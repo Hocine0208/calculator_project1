@@ -25,3 +25,9 @@ def test_division_by_zero():
 def test_unknown_operator():
     with pytest.raises(ValueError):
         calculate(10, "%", 2)
+        
+def test_negative_numbers():
+    assert calculate(-5, "+", 2) == -3
+
+def test_decimal_result():
+    assert calculate(5, "/", 2) == 2.5

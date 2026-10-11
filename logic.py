@@ -7,7 +7,7 @@ def calculate(a, op, b):
         return a * b
     elif op == "/":
         if b == 0:
-            raise ValueError("cannot divede by zero")
+            raise ValueError("Cannot divide by zero")
         return a / b
     else:
         raise ValueError("Unknown operator")

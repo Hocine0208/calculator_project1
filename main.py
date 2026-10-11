@@ -36,19 +36,26 @@ def on_button_click(label):
             operator = label
             start_new_number = True
             
+    
     elif label == "=":
-        
-        try:
-            second_number = float(display.get())
-            result = calculate(first_number, operator, second_number)
-            
-            display.delete(0, "end")
-            display.insert(0, str(result))
-        except (ValueError, TypeError, ZeroDivisionError):
-            display.delete(0, "end")
-            display.insert(0, "Error")
+        if first_number is not None and operator is not None:
+            try:
+                second_number = float(display.get())
+                result = calculate(
+                    first_number,
+                    operator,
+                    second_number
+                )
 
-        start_new_number = True
+                display.delete(0, "end")
+                display.insert(0, str(result))
+                start_new_number = True
+
+            except ValueError:
+                display.delete(0, "end")
+                display.insert(0, "Error")
+                start_new_number = True
+
     
     elif label == ".":
         if start_new_number:
